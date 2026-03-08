@@ -54,8 +54,8 @@ function releaseLock() { processing = false; }
 // ─── Bilingual message bank ────────────────────────────
 const MSG = {
   greeting: {
-    en: `Hello! 👋 I'm your <strong>Myanmar Driver Check</strong> assistant. I verify driving eligibility under the Odd-Even Scheme announced by the <strong>NDSC on ${ANNOUNCED_DATE}</strong> (effective ${SCHEME_START}). <br><small>📋 Data ${DATA_VERSION} — verified ${DATA_VERIFIED}</small>`,
-    my: `မင်္ဂလာပါ! 👋 NDSC ကြေညာချက် (${ANNOUNCED_DATE}) အရ ကားမောင်းနှင်ခွင့် စစ်ဆေးပေးပါမည်။ <small>ဒေတာ ${DATA_VERSION} — စစ်ဆေးပြီး ${DATA_VERIFIED}</small>`
+    en: `Hello! 👋 I'm your <strong>Myanmar Driver Check</strong> assistant — verifying eligibility under the Odd-Even Scheme (<strong>NDSC, ${ANNOUNCED_DATE}</strong>, effective ${SCHEME_START}).<br><small>📋 Data ${DATA_VERSION} verified ${DATA_VERIFIED} across 7 official sources.</small><br><small>⚠️ Note: School vehicles &amp; company shuttles are <strong>NOT exempt</strong> per official NDSC rules.</small>`,
+    my: `မင်္ဂလာပါ! 👋 NDSC ကြေညာချက် (${ANNOUNCED_DATE}) အရ မော်တော်ယာဉ် မဂ္ဂဇိဇ်/စစ်ကိန်း စစ်ဆေးပေးပါမည်။ <small>ဒေတာ ${DATA_VERSION} — ၇ ခုသော အရင်းအမြစ်မှ အတည်ပြုပြီး ${DATA_VERIFIED}။</small><br><small>⚠️ မှတ်ချက်: ကျောင်းယာဉ်နှင့် ကုမ္ပဏီ ဝန်ထမ်းယာဉ်များ <strong>ကင်းလွတ်ခွင့် မရှိပါ</strong>။</small>`
   },
   askVehicleType: {
     en: 'First, what type of vehicle do you have?',
