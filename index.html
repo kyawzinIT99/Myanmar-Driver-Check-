@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Content Security Policy: restrict script sources to self + Tesseract CDN only -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://cdn.jsdelivr.net; worker-src blob:;" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Myanmar Driver Check | မော်တော်ကားဦးနံပါတ် စစ်ဆေးစနစ်</title>
   <meta name="description"
@@ -42,6 +45,7 @@
         <h1>Myanmar Driver Check</h1>
         <p>မော်တော်ကားဦးနံပါတ် စစ်ဆေးစနစ်</p>
       </div>
+      <span id="verified-badge" class="verified-badge" title="Data version and verification status"></span>
       <div class="date-badge" id="date-badge"></div>
     </header>
 
@@ -94,7 +98,7 @@
   <!-- Hidden preview -->
   <img id="preview-img" alt="plate preview" hidden />
 
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js" crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
 
