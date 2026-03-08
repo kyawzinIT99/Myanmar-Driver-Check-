@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Myanmar Driver Check | မော်တော်ကားဦးနံပါတ် စစ်ဆေးစနစ်</title>
+  <meta name="description"
+    content="Scan your vehicle license plate to instantly check if you can drive today under Myanmar's odd-even scheme. Bilingual English & Burmese." />
+  <meta name="theme-color" content="#f5c518" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Driver Check" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Animated background -->
+  <div class="bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-icon">🚗</div>
+      <div class="header-text">
+        <h1>Myanmar Driver Check</h1>
+        <p>မော်တော်ကားဦးနံပါတ် စစ်ဆေးစနစ်</p>
+      </div>
+      <div class="date-badge" id="date-badge"></div>
+    </header>
+
+    <!-- Chat window -->
+    <main class="chat-window" id="chat-window" aria-live="polite">
+      <!-- Messages injected by JS -->
+    </main>
+
+    <!-- Input area -->
+    <footer class="chat-footer">
+      <!-- OCR Upload Zone -->
+      <div class="upload-zone" id="upload-zone" style="display:none;">
+        <label for="plate-upload" class="upload-label" id="upload-label">
+          <span class="upload-icon">📷</span>
+          <span class="upload-text-en">Tap to capture / upload plate photo</span>
+          <span class="upload-text-my">ဓာတ်ပုံ ရိုက်ရန် နှိပ်ပါ</span>
+          <input type="file" id="plate-upload" accept="image/*" capture="environment" hidden />
+        </label>
+        <canvas id="ocr-canvas" hidden></canvas>
+        <div class="processing-indicator" id="processing-indicator" style="display:none;">
+          <div class="spinner"></div>
+          <span>OCR Processing…</span>
+        </div>
+      </div>
+
+      <!-- Manual entry fallback -->
+      <div class="manual-entry" id="manual-entry" style="display:none;">
+        <input type="text" id="plate-input" placeholder="Enter plate number manually… (e.g. 1234)" maxlength="10"
+          aria-label="License plate number" />
+        <button id="manual-submit" aria-label="Submit plate number">→</button>
+      </div>
+
+      <!-- Quick reply buttons -->
+      <div class="quick-replies" id="quick-replies"></div>
+
+      <!-- Text input row -->
+      <div class="text-input-row" id="text-input-row">
+        <input type="text" id="user-text-input" placeholder="Type a message… / မက်ဆေ့ ရိုက်ပါ…"
+          aria-label="Chat message input" />
+        <button id="send-btn" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Hidden preview -->
+  <img id="preview-img" alt="plate preview" hidden />
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
